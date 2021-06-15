@@ -5,3 +5,4 @@ This repo aims to explain how the single thread works with LIBUV and its thread 
 ## References
 
 - [Is Node.js Really Single-Threaded?](https://betterprogramming.pub/is-node-js-really-single-threaded-7ea59bcc8d64)
+- [Password-Based Key Derivation Function](https://en.wikipedia.org/wiki/PBKDF2)
