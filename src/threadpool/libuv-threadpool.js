@@ -1,4 +1,8 @@
 import crypto from 'crypto'
+import os from 'os'
+
+console.log('Available CPUs: ', os.cpus().length)
+console.log('Thread pool size: ', process.env.UV_THREADPOOL_SIZE)
 
 const start = Date.now()
 function logHashTime(password) {
