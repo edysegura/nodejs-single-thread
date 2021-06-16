@@ -1,6 +1,6 @@
-export function fibonacciRecursion(number) {
+export function calculateFibonacci(number) {
     if (number <= 1) {
         return number
     }
-    return fibonacciRecursion(number - 1) + fibonacciRecursion(number -2)
+    return calculateFibonacci(number - 1) + calculateFibonacci(number -2)
 }
