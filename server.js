@@ -1,5 +1,6 @@
 import express from 'express'
-import { calculateFibonacci } from './src/fibonacci.js'
+import { Worker } from 'worker_threads'
+
 import { logHashTime } from './src/libuv-threadpool.js'
 
 const app = express()
@@ -11,7 +12,11 @@ app.get('/', (_, response) => {
 
 app.get('/fibonacci/:number', (request, response) => {
     const number = request.params.number
-    response.send(`The ${number}x of fibonacci interaction is: ${calculateFibonacci(number)}`)
+    const worker = new Worker('./src/worker.js')
+    worker.postMessage(number)
+    worker.once('message', result => {
+        response.send(`The ${number}x of fibonacci interaction is: ${result}`)
+    })
 })
 
 app.get('/hash/:password', async (request, response) => {
