@@ -14,9 +14,9 @@ app.get('/fibonacci/:number', (request, response) => {
     response.send(`The ${number}x of fibonacci interaction is: ${calculateFibonacci(number)}`)
 })
 
-app.get('/hash/:password', (request, response) => {
+app.get('/hash/:password', async (request, response) => {
     const password = request.params.password
-    response.send(logHashTime(password))
+    response.send(await logHashTime(password))
 })
 
 app.listen(port, () => {
