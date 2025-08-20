@@ -1,7 +1,7 @@
-import { parentPort } from 'worker_threads'
+import { parentPort } from 'node:worker_threads'
 import { calculateFibonacci } from './fibonacci.js'
 
-parentPort.on('message', data => {
+parentPort.on('message', (data) => {
   const result = calculateFibonacci(data)
   parentPort.postMessage(result)
 })
